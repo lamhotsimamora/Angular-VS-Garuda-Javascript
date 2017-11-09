@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	 <title>Angular VS Garuda Javascript</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js"></script>
+	 <script src="https://cdn.rawgit.com/lamhotsimamora/GF-Javascript/master/JS/GF-1.js"></script>
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+	
+
+	
+	<div class="container">
+		 <hr>
+		 <center><h2>Angular</h2></center>
+		 <hr>
+		<div class="jumbotron">
+			  <label>Name:</label>
+		      <input type="text" class="form-control" ng-model="name" placeholder="Enter a name here">
+		      <hr>
+		      <h2>Hello {{name}} !</h2>
+			  <hr>
+			  <input type="text" class="form-control" value="{{name}}" placeholder="Name" name="">
+			  	<hr>
+				<button class="btn btn-primary" ng-click="count = count + 1" ng-init="count=0">
+				  Increment
+				</button>
+				<span>
+				  <h4>count: {{count}}</h4>
+				</span>
+		</div>
+		
+	</div>
+
+
+	<div class="container">
+		 <hr>
+		 <center><h2>Garuda Javascript</h2></center>
+		 <hr>
+		
+		 <div class="jumbotron">
+			  <label>Name:</label>
+		      <input type="text" id="txt_name" class="form-control" placeholder="Enter a name here">
+		      <hr>
+		      <h2>Hello <gf id="disp_name"></gf> !</h2>
+			  <hr>
+			  <input type="text" class="form-control" id="txt_name_2" placeholder="Enter a name here" name="">
+			  	<hr>
+				<button class="btn btn-primary" id="btn_count">
+				  Increment
+				</button>
+				<span>
+				  <h4>count: <gf id="disp_count">0</gf></h4>
+				</span>
+		 </div>
+	
+
+	</div>
+	
+
+	<script type="text/javascript">
+
+		// Garuda Javascript
+		
+		var my_count = 1;
+		_onClick("btn_count",function(){
+			_printTo("disp_count",my_count);
+			my_count++;
+		});
+
+		_onKeyUp("txt_name",function(){
+			var val = _getValById("txt_name");
+			_printTo("disp_name",val);
+			_setValue("txt_name_2",val);
+		});
+
+		
+	</script>
+	
+
+
+</body>
+</html>
